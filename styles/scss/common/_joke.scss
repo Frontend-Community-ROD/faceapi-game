@@ -1,0 +1,67 @@
+@import '../variables/media-queries';
+@import '../shared/placeholders';
+@import '../shared/animations';
+
+.joke {
+    @extend %cool-box;
+    @include reveal-box();
+
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+    max-width: 90vw;
+    text-align: center;
+    backdrop-filter: blur(15px);
+    font-size: clamp(18px, 5vw, 25px);
+    letter-spacing: 1;
+    line-height: 1.25;
+    z-index: 1;
+
+    &::before {
+        width: 105%;
+    }
+
+    &::after {
+        transform: translate(-50%, -50%) rotate(1deg);
+    }
+
+    @media #{$max-width-lg} {
+        right: 25px;
+        left: 25px;
+        bottom: 25px;
+    }
+
+    .setup {
+        &::after {
+            content: '';
+            position: absolute;
+            top: calc(100% + 25px);
+            left: 10%;
+            width: 80%;
+            height: 10px;
+            background-color: rgb(var(--theme-tertiary));
+            transform: scaleX(0);
+            transform-origin: left;
+            animation: load-punchline ease-in forwards var(--punchline-reveal);
+        }
+    }
+
+    .punchline {
+        color: rgb(var(--theme-secondary));
+        @include reveal(500ms, var(--punchline-reveal));
+    }
+}
+
+@keyframes load-punchline {
+    0% {
+        transform: scaleX(0);
+    }
+
+    99% {
+        transform: scaleX(1);
+    }
+
+    100% {
+        display: none;
+    }
+}

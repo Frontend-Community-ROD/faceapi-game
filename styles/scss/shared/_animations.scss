@@ -1,0 +1,58 @@
+@keyframes reveal-box {
+    0% {
+        opacity: 0;
+        transform: scale(0) rotate(10deg);
+    }
+
+    75% {
+        opacity: 0;
+        transform: scale(1.25) rotate(-5deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) rotate(0);
+    }
+}
+
+@mixin reveal-box($duration: 500ms, $delay: 0ms) {
+    opacity: 0;
+    transform: scale(0) rotate(10deg);
+    animation: reveal-box cubic-bezier(0.175, 0.885, 0.35, 1.275) forwards $duration $delay;
+}
+
+@keyframes reveal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@mixin reveal($duration: 500ms, $delay: 0ms) {
+    opacity: 0;
+    animation: reveal cubic-bezier(0.175, 0.885, 0.35, 1.275) forwards $duration $delay;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes glow {
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}

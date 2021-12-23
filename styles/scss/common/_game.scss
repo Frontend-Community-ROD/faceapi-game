@@ -1,0 +1,51 @@
+@import '../shared/placeholders';
+@import '../shared/animations';
+
+#game-menu,
+#game-over-message {
+    @extend %cool-box;
+    @include reveal-box();
+    text-align: center;
+    z-index: 1;
+
+    h1 {
+        color: rgb(var(--theme-black));
+        opacity: 0.85;
+        font-size: clamp(40px, 10vw, 60px);
+
+        b {
+            color: rgb(var(--theme-secondary));
+        }
+    }
+}
+
+#game-menu {
+    transition: opacity ease 1s;
+
+    button {
+        background-color: transparent;
+        background-image: linear-gradient(
+            -150deg,
+            rgb(var(--theme-primary-light)),
+            rgb(var(--theme-primary))
+        );
+        color: #fff;
+        border-radius: 15px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border: none;
+        font-size: clamp(18px, 5vw, 25px);
+        margin-top: 25px;
+        padding: 10px 15px;
+        transition: transform ease 250ms;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.25) rotate(-3deg);
+        }
+    }
+}
+
+#game-over-message {
+    display: none;
+}

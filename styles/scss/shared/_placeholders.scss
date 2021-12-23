@@ -1,0 +1,37 @@
+%cool-box {
+    position: relative;
+    padding: 10px 15px;
+
+    &::before,
+    &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+    &::before {
+        width: 110%;
+        height: 100%;
+        transform: translate(-50%, -50%) rotate(-3deg);
+        background-image: linear-gradient(
+            90deg,
+            rgb(var(--theme-primary-light)),
+            rgb(var(--theme-primary))
+        );
+    }
+
+    &::after {
+        width: 100%;
+        height: 0;
+        border-top: 150px solid rgb(var(--theme-white));
+        border-left: 20px solid transparent;
+        border-right: 15px solid transparent;
+        transform: translate(-50%, -50%) rotate(3deg) scale(1.2);
+    }
+
+    > * {
+        position: relative;
+        z-index: 1;
+    }
+}

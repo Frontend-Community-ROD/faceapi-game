@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="stylesheet" href="./styles/style.css" />
+        <title>Don't Laugh</title>
+    </head>
+
+    <body class="loading">
+        <!-- The container for the video and canvas elements (used by the face recognition API) -->
+        <div id="video-container">
+            <video id="video" autoplay muted></video>
+        </div>
+
+        <!-- The game menu -->
+        <div id="game-menu">
+            <h1>Try not to <b>laugh!</b></h1>
+            <button id="start-button">Start</button>
+        </div>
+
+        <!-- The jokes container, gets updates from the game service -->
+        <div id="jokes"></div>
+
+        <!-- The game over message with the {{result}} variable used to display de WIN or LOSE message -->
+        <div id="game-over-message">
+            <h1>You <b>{{result}}!</b></h1>
+        </div>
+
+        <script src="./js/index.js" type="module"></script>
+    </body>
+</html>
